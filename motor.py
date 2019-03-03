@@ -7,7 +7,7 @@ import time
 def initMotor():
 	GPIO.setmode(GPIO.BOARD)
 
-	# Initialize the pollowing pins to gnd
+	# Initialize the Motor 1 pins to gnd
 	# 31, 33, 35, 37
 	GPIO.setup(31, GPIO.OUT, initial=0)
 	GPIO.setup(33, GPIO.OUT, initial=0)
@@ -15,25 +15,33 @@ def initMotor():
 	GPIO.setup(37, GPIO.OUT, initial=0)
 
 
+	# Initialize the Motor 2 pins to gnd
+	# 32, 36, 38, 40
+	GPIO.setup(32, GPIO.OUT, initial=0)
+	GPIO.setup(36, GPIO.OUT, initial=0)
+	GPIO.setup(38, GPIO.OUT, initial=0)
+	GPIO.setup(40, GPIO.OUT, initial=0)
+
+
 # Turn the motor a number of steps
 # Enter positive number of steps for CCW
 # Enter negative number of steps for CW
-def turnMotor(steps):
+def turnMotor(motorNum, steps):
 
 	inc = 0.001
 
+	# Check for correct motor numbers
+	if (motorNum != 1 and motorNum != 2): return
+
+	if (motorNum == 1):
+		p1, p2, p3, p4 = 31, 33, 35, 37
+	else:
+		p1, p2, p3, p4 = 32, 36, 38, 40
+
 	# Negative steps means turn opposite
 	if (steps <= 0):
-		p1 = 37
-		p2 = 35
-		p3 = 33
-		p4 = 31
+		p1, p2, p3, p4 = p4, p3, p2, p1
 		steps = 0-steps
-	else:
-		p1 = 31
-		p2 = 33
-		p3 = 35
-		p4 = 37
 
 	while (steps > 0):
 		GPIO.output(p1, GPIO.HIGH)

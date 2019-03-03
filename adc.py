@@ -2,7 +2,7 @@
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 import datetime
-import dataProcess
+from dataProcess import *
 
 # Hardware SPI configuration:
 SPI_PORT   = 0

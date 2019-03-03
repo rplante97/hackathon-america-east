@@ -47,8 +47,8 @@ def adc2humidity(val1, val2, temp):
 
 	# Determine humidity based on val2 reading
 	# Find resistance of humidity sensor
-	reshum = val2 * 10e3 / (1024 - val2)
-	val2hum = math.log10(reshum) * -105 / 13 + 105 + (temp / 20)
+	reshum = val2 * 1e6 / (1024 - val2)
+	val2hum = (math.log10(reshum)-2) * -105 / 13 + 105 + (temp / 20)
 
 	# Compare and pick appropriate value
 	if (val2hum > 50 and val1hum > 50):

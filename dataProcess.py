@@ -37,7 +37,7 @@ def adc2humidity(val1, val2, temp):
 	# val2 = vlaue of high humidity sensor
 	# temp = temperature, deg C
 
-	if (val1 < 0 or val1 > 1023 or val2 < 0 or val2 > 1023):
+	if (val1 <= 0 or val1 > 1023 or val2 <= 0 or val2 > 1023):
 		return -1
 
 	# Determine humidity based on val1 reading

@@ -15,11 +15,11 @@ try:
 	# Initialize the motor
 	initMotor()
 
-#	turnMotor(1000) # 1000 steps CCW
-#	turnMotor(-1000) # 1000 steps CW
+	turnMotor(1000) # 1000 steps CCW
+	turnMotor(-1000) # 1000 steps CW
 
-	to read ADC
-	var = mcp.read_adc(channel_num)
+	# Code to read ADC
+	# var = mcp.read_adc(channel_num)
 
 	# Do 5 dummy reads originally to initialize ADC
 	x = mcp.read_adc(0)

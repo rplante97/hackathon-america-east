@@ -75,6 +75,7 @@ try:
 
 		print datestring, light, " ", humid, " ", soil, temp
                 database_insert(datestring, temp, humid, soil, soil2, light)
+                savePhoto("/var/www/html/plant.jpg")
 		
 		time.sleep(30)
 

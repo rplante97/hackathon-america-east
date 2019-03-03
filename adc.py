@@ -6,6 +6,7 @@ import time
 from w1thermsensor import W1ThermSensor
 from dataProcess import *
 from motor import *
+from camera import *
 
 # Hardware SPI configuration:
 SPI_PORT   = 0
